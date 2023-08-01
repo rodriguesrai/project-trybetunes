@@ -25,13 +25,14 @@ function Search() {
         const resultSearch = await searchAlbumsAPI(value);
         setArtistName(value);
         setAlbums(resultSearch);
-        console.log(resultSearch);
       } catch (error) {
         console.error('Error ao pesquisar', error);
       } finally {
-        setLoading(false);
+        setTimeout(() => {
+          setLoading(false);
+          setShowResult(true);
+        }, 2000);
         setShowInput(true);
-        setShowResult(true);
         setValue('');
       }
     }
