@@ -4,3 +4,8 @@ export type MusicType = {
   artistName: string;
   previewUrl: string;
 };
+
+export type Album = {
+  collectionId: number;
+  collectionName: string;
+};

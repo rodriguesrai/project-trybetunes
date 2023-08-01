@@ -2,8 +2,12 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Carregando from '../Carregando/carregando';
 import searchAlbumsAPI from '../../services/searchAlbumsAPI';
+import { Album } from '../../types/types';
 
 function Search() {
+  // const location = useLocation();
+  // const userName = location.state?.userName;
+
   const [value, setValue] = useState(''); // useState do input
   const [loading, setLoading] = useState(false); // useState do carregando
   const [showInput, setShowInput] = useState(true); // esconde input
@@ -31,7 +35,7 @@ function Search() {
         setTimeout(() => {
           setLoading(false);
           setShowResult(true);
-        }, 2000);
+        }, 1500);
         setShowInput(true);
         setValue('');
       }

@@ -18,7 +18,7 @@ function Login() {
     setLoading(true);
     try {
       await createUser({ name: value.trim() });
-      navigate('/search');
+      navigate('/search', { state: { userName: value.trim() } });
     } catch (error) {
       console.error('Error ao salvar usuário', error);
     }

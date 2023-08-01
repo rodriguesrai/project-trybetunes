@@ -23,7 +23,7 @@ function Album() {
       } finally {
         setTimeout(() => {
           setLoading(false);
-        }, 2000);
+        }, 1500);
       }
     };
     requestAlbum();
@@ -31,23 +31,26 @@ function Album() {
 
   return (
     <div>
-      {loading && <Carregando />}
-      {albumData && (
-        <div>
-          <h1 data-testid="artist-name">{albumData[0]?.artistName}</h1>
-          <h3 data-testid="album-name">{albumData[0]?.collectionName}</h3>
-          <ul>
-            {albumData.map((music: MusicType) => (
-              <MusicCard
-                key={ music.trackId }
-                trackName={ music.trackName }
-                previewUrl={ music.previewUrl }
-                trackId={ 0 }
-                artistName=""
-              />
-            ))}
-          </ul>
-        </div>
+      {loading ? (
+        <Carregando />
+      ) : (
+        albumData && (
+          <div>
+            <h1 data-testid="artist-name">{albumData[0]?.artistName}</h1>
+            <h3 data-testid="album-name">{albumData[0]?.collectionName}</h3>
+            <ul>
+              {albumData.map((music: MusicType) => (
+                <MusicCard
+                  key={ music.trackId }
+                  trackName={ music.trackName }
+                  previewUrl={ music.previewUrl }
+                  trackId={ 0 }
+                  artistName=""
+                />
+              ))}
+            </ul>
+          </div>
+        )
       )}
     </div>
   );
