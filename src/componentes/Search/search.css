@@ -1,0 +1,23 @@
+.container-parentSearch {
+  align-items: center;
+  display: flex;
+  height: 20vh;
+  justify-content: center;
+}
+
+.container-search {
+  align-items: center;
+  display: flex;
+}
+
+.form-control {
+  font-size: 16px;
+  padding: 8px;
+}
+
+.button-login {
+  font-size: 16px;
+  margin-left: 8px;
+  padding: 8px 16px;
+}
+

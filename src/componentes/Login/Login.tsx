@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createUser } from '../../services/userAPI';
 import Carregando from '../Carregando/carregando';
+import 'bootstrap/dist/css/bootstrap.css';
+import './Login.css';
+import minhaImagem from './trybetunes.png';
 
 function Login() {
   const [value, setValue] = useState('');
@@ -25,23 +28,31 @@ function Login() {
   };
 
   return (
-    <div>
-      <label htmlFor="login">Login</label>
-      <input
-        type="text"
-        data-testid="login-name-input"
-        id="login"
-        value={ value }
-        onChange={ handleChange }
-      />
-      <button
-        data-testid="login-submit-button"
-        disabled={ !validName }
-        onClick={ handleLogin }
-      >
-        Entrar
-      </button>
-      {loading && <Carregando />}
+    <div className="container-parent">
+      <img src={ minhaImagem } className="img-container" alt="" />
+      <div className="container">
+        <label htmlFor="login" className="screen-reader-only">Login</label>
+        <div className="input">
+          <input
+            type="text"
+            data-testid="login-name-input"
+            id="login"
+            value={ value }
+            onChange={ handleChange }
+            placeholder="Digite seu nome de usuário"
+            className="form-control"
+          />
+        </div>
+        <button
+          data-testid="login-submit-button"
+          disabled={ !validName }
+          onClick={ handleLogin }
+          className="button-login"
+        >
+          Entrar
+        </button>
+        {loading && <Carregando />}
+      </div>
     </div>
   );
 }

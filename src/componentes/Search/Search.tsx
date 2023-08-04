@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Carregando from '../Carregando/carregando';
 import searchAlbumsAPI from '../../services/searchAlbumsAPI';
 import { Album } from '../../types/types';
+import './search.css';
 
 function Search() {
   // const location = useLocation();
@@ -45,22 +46,27 @@ function Search() {
   return (
     <div>
       {showInput && (
-        <div>
-          <label htmlFor="search">Search</label>
-          <input
-            type="text"
-            data-testid="search-artist-input"
-            id="search"
-            value={ value }
-            onChange={ handleChange }
-          />
-          <button
-            data-testid="search-artist-button"
-            disabled={ !validName }
-            onClick={ handleSearch }
-          >
-            Pesquisar
-          </button>
+        <div className="container-parentSearch">
+          <div className="container-search">
+            <label htmlFor="search">
+              <input
+                type="text"
+                data-testid="search-artist-input"
+                id="search"
+                value={ value }
+                onChange={ handleChange }
+                className="form-control"
+              />
+            </label>
+            <button
+              data-testid="search-artist-button"
+              disabled={ !validName }
+              onClick={ handleSearch }
+              className="button-login"
+            >
+              Pesquisar
+            </button>
+          </div>
         </div>
       )}
       {loading && <Carregando />}

@@ -1,6 +1,11 @@
+import './carregando.css';
+
 function Carregando() {
   return (
-    <p>Carregando...</p>
+    <>
+      <div className="spinner" />
+      <p>Carregando...</p>
+    </>
   );
 }
 

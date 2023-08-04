@@ -11,6 +11,8 @@ function Album() {
 
   const { id } = useParams<string>();
 
+  let keyCounter = 0;
+
   useEffect(() => {
     const requestAlbum = async () => {
       setLoading(true);
@@ -41,11 +43,11 @@ function Album() {
             <ul>
               {albumData.map((music: MusicType) => (
                 <MusicCard
-                  key={ music.trackId }
+                  key={ keyCounter++ }
                   trackName={ music.trackName }
                   previewUrl={ music.previewUrl }
-                  trackId={ 0 }
-                  artistName=""
+                  trackId={ music.trackId }
+                  artistName={ music.artistName }
                 />
               ))}
             </ul>

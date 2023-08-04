@@ -1,4 +1,18 @@
-p {
-  color: #333;
-  font-size: 16px;
+.spinner {
+  animation: spinner-d3wgkg 1s infinite linear;
+  border: 9px solid;
+  border-color: #dbdcef;
+  border-radius: 50%;
+  border-right-color: #474bff;
+  height: 56px;
+  margin-bottom: 20px;
+  width: 56px;
 }
+
+@keyframes spinner-d3wgkg {
+
+  to {
+    transform: rotate(1turn);
+  }
+}
+

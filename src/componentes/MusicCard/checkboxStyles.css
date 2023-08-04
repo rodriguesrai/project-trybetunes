@@ -1,0 +1,17 @@
+/* input[ type = 'checkbox' ] {
+  appearance: none;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  height: 25px;
+  outline: none;
+  width: 25px;
+}
+
+input[ type = 'checkbox' ]:checked {
+  background-image: url('/src/images/checked_heart.png');
+}
+
+input[ type = 'checkbox' ]:not( :checked ) {
+  background-image: url('/src/images/empty_heart.png');
+} */
