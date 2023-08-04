@@ -10,6 +10,16 @@ function MusicCard({ trackName, previewUrl, trackId }: MusicType) {
   const emptyHeartImagePath = '/src/images/empty_heart.png';
 
   function handlerChange() {
+    const musicData = {
+      trackId,
+      trackName,
+      previewUrl,
+    };
+    if (checked) {
+      removeSong(musicData);
+    } else {
+      addSong(musicData);
+    }
     setChecked(!checked);
   }
 
