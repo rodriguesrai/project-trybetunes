@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { MusicType } from '../../types/types';
 import { addSong, removeSong } from '../../services/favoriteSongsAPI';
+import { MusicType } from '../../types';
 // import { addSong, removeSong } from '../../services/favoriteSongsAPI';
 // import './checkboxStyles.css';
 

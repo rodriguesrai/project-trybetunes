@@ -2,12 +2,14 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import getMusics from '../../services/musicsAPI';
 import Carregando from '../Carregando/carregando';
-import { MusicType } from '../../types/types';
 import MusicCard from '../MusicCard/musicCard';
+import { getFavoriteSongs } from '../../services/favoriteSongsAPI';
+import { MusicType } from '../../types';
 
 function Album() {
   const [loading, setLoading] = useState(false);
   const [albumData, setAlbumData] = useState<any>(null);
+  const [favoriteSongs, setFavoriteSongs] = useState<number[]>([]);
 
   const { id } = useParams<string>();
 
@@ -31,6 +33,21 @@ function Album() {
     requestAlbum();
   }, [id]);
 
+  useEffect(() => {
+    const fetchFavoriteSongs = async () => {
+      try {
+        const favoriteSongsData = await getFavoriteSongs();
+        const favoriteTracksIds = favoriteSongsData
+          .map((song: MusicType) => song.trackId);
+        setFavoriteSongs(favoriteTracksIds);
+      } catch (error) {
+        console.error('Error ao obter as músicas favoritas', error);
+      }
+    };
+
+    fetchFavoriteSongs();
+  }, [id]);
+
   return (
     <div>
       {loading ? (
@@ -48,6 +65,7 @@ function Album() {
                   previewUrl={ music.previewUrl }
                   trackId={ music.trackId }
                   artistName={ music.artistName }
+                  checked={ favoriteSongs.includes(music.trackId) }
                 />
               ))}
             </ul>

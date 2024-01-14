@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Carregando from '../Carregando/carregando';
 import searchAlbumsAPI from '../../services/searchAlbumsAPI';
-import { Album } from '../../types/types';
-import './search.css';
+import styles from './search.module.css';
+import { Album } from '../../types';
 
 function Search() {
   // const location = useLocation();
@@ -46,8 +46,8 @@ function Search() {
   return (
     <div>
       {showInput && (
-        <div className="container-parentSearch">
-          <div className="container-search">
+        <div className={ styles.containerParentSearch }>
+          <div className={ styles.containerSearch }>
             <label htmlFor="search">
               <input
                 type="text"
@@ -55,14 +55,14 @@ function Search() {
                 id="search"
                 value={ value }
                 onChange={ handleChange }
-                className="form-control"
+                className={ styles.formControl }
               />
             </label>
             <button
               data-testid="search-artist-button"
               disabled={ !validName }
               onClick={ handleSearch }
-              className="button-login"
+              className={ styles.buttonLogin }
             >
               Pesquisar
             </button>
